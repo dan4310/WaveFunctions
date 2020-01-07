@@ -30,8 +30,8 @@ public class ToolBar extends JPanel {
 				Color back = new Color(202, 233, 237);
 				setBackground(back);
 				setLayout(null);
-				int num,yPos;
-				num = 1; yPos = 30;
+				int num,xPos,yPos;
+				num = 1; xPos = 10; yPos = 30;
 				String[] waves = {"NONE", "A*cos(kx)", "A*sin(kx)" };
 				Cursor hand = new Cursor(Cursor.HAND_CURSOR);
 				
@@ -40,18 +40,18 @@ public class ToolBar extends JPanel {
 					p.setLayout(null);
 					p.setBounds(0,yPos,300,30); 
 					JLabel lbl = new JLabel(Integer.toString(num)+"."); lbl.setForeground(Color.white);
-					lbl.setBounds(10,3,20,20); p.add(lbl);
+					lbl.setBounds(0,0,20,20); p.add(lbl);
 					JComboBox<String> cb = new JComboBox<String>(waves);
 					cb.setCursor(hand);
-					cb.setBounds(30,3,120,25); p.add(cb);
+					cb.setBounds(20,0,120,25); p.add(cb);
 					comboBoxes[i] = cb;
-					lbl = new JLabel("k:"); lbl.setBounds(160,3,20,20); 
+					lbl = new JLabel("k:"); lbl.setBounds(150,0,20,20); 
 					lbl.setForeground(Color.white); p.add(lbl);
-					JTextField txt = new JTextField(); txt.setBounds(170,3,40,20); p.add(txt);
+					JTextField txt = new JTextField(); txt.setBounds(160,0,40,20); p.add(txt);
 					kTextFields[i] = txt;
-					lbl = new JLabel("A:"); lbl.setBounds(220,3,20,20); 
+					lbl = new JLabel("A:"); lbl.setBounds(210,0,20,20); 
 					lbl.setForeground(Color.white); p.add(lbl);
-					txt = new JTextField(); txt.setBounds(230,3,40,20); p.add(txt);
+					txt = new JTextField(); txt.setBounds(220,0,30,20); p.add(txt);
 					ATextFields[i] = txt;
 					add(p);
 					yPos += 30;
@@ -63,14 +63,11 @@ public class ToolBar extends JPanel {
 				check.setCursor(hand);
 				add(check);
 				
-				JCheckBox time = new JCheckBox("Time"); time.setBounds(120,430,120,20);
-				time.setCursor(hand);
-				add(time);
 				
 				// button plot
 				btnPlot = new JButton("Plot!"); btnPlot.setBounds(0,400,100,30);
 				btnPlot.setCursor(hand);
-				l1 = new Listener(comboBoxes, kTextFields, ATextFields, check, time);
+				l1 = new Listener(comboBoxes, kTextFields, ATextFields, check);
 				l1.setToolbar(this);
 				l1.setGraphOld(g);
 				btnPlot.addActionListener(l1);

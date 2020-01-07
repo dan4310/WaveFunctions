@@ -48,44 +48,7 @@ public class Function {
 			}
 		}
 	}
-	// Time dependent
-	public void cos(double k, double amp, double w, int t, boolean bool) {
-		int xPos = (int) (-frameL/2);
-		double xPosReal = -6*Math.PI;
-		for (int i = 0; i < getCoords().length; i++) {
-			getCoords()[i][0] = xPos; xPos+=1;
-			getCoords()[i][1] = (int) (Math.cos((xPosReal*k)-(w*t))*amp*(250/5)); xPosReal+=(0.03769911184);
-			
-			
-			if (!bool) {
-				getCoords()[i][0] += (int) frameL/2;
-				if (getCoords()[i][1] < 0) {
-					getCoords()[i][1] = Math.abs(getCoords()[i][1]) + (int) frameW/2;
-				} else if (getCoords()[i][1] > 0) {
-					getCoords()[i][1] = (int) (frameW/2 - getCoords()[i][1]);
-				} else { getCoords()[i][1] = (int) frameW/2;}
-			}
-		}
-	}
 	
-	public void sin(double k, double amp, double w, int t, boolean bool) {
-		int xPos = (int) (-frameL/2);
-		double xPosReal = -6*Math.PI;
-		for (int i = 0; i < getCoords().length; i++) {
-			getCoords()[i][0] = xPos; xPos+=1;
-			getCoords()[i][1] = (int) (Math.sin((xPosReal*k)-(w*t))*amp*(250/5)); xPosReal+=(0.03769911184);
-			
-			
-			if (!bool) {
-				getCoords()[i][0] += (int) frameL/2;
-				if (getCoords()[i][1] < 0) {
-					getCoords()[i][1] = Math.abs(getCoords()[i][1]) + (int) frameW/2;
-				} else if (getCoords()[i][1] > 0) {
-					getCoords()[i][1] = (int) (frameW/2 - getCoords()[i][1]);
-				} else { getCoords()[i][1] = (int) frameW/2;}
-			}
-		}
-	}
 	
 	public int[][] getCoords() {
 		return coords;

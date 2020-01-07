@@ -14,27 +14,19 @@ public class Graph extends JPanel {
 	public int[][] coords;
 	int[] funcInts;
 	double[] k,A;
-	private int T = 0;
-	private double w;
 	Color[] colors;
 	private int[][] interCoords = new int[1000][2];
 	
 	private boolean refresh = false;
 	private boolean interference = false;
-	private boolean time;
 	
 	public Graph(int[] funcs, double[] k, double[] A) {
 		funcInts = funcs; this.k = k; this.A = A; refresh = true;
-		frameL = 1000; frameW = 500; this.time = false;
+		frameL = 1000; frameW = 500;
 	}
 	public Graph(int[] funcs, double[] k, double[] A, boolean interference) {
 		funcInts = funcs; this.k = k; this.A = A;
-		frameL = 1000; frameW = 500; this.interference = interference; this.time = false;
-	}
-	public Graph(int[] funcs, double[] k, double[] A, double w, int t, boolean interference) {
-		funcInts = funcs; this.k = k; this.A = A;
-		frameL = 1000; frameW = 500; this.interference = interference; this.time = true;
-		this.T = t; this.w = w;
+		frameL = 1000; frameW = 500; this.interference = interference;
 	}
 	public Graph() {
 		frameL = 1000; frameW = 500;
@@ -60,7 +52,7 @@ public class Graph extends JPanel {
 		}
 		for (int i = 0; i < coordsTicksY.length; i++) {
 			g.fillRect((int) (frameL/2), coordsTicksY[i], t.getTickL(), t.getTickW());
-			g.drawString(5-i+"", (int) (frameL/2)+6, coordsTicksY[i]+6);
+			g.drawString(-5+i+"", (int) (frameL/2)+4, coordsTicksY[i]+4);
 		}
 		
 		f = new Function();
@@ -70,21 +62,12 @@ public class Graph extends JPanel {
 			for (int i = 0; i < funcInts.length; i++) {
 				g.setColor(colors[i]);
 				if (funcInts[i] == 1) {
-					if (time) {
-						f.cos(k[i], A[i], w, T, false);
-					} else {
-						f.cos(k[i], A[i], false);
-					}
+					f.cos(k[i],A[i], false);
 					coords = f.getCoords();
 				} else if (funcInts[i] == 2) {
-					if (time) {
-						f.sin(k[i], A[i], w, T, false);
-					} else {
-						f.sin(k[i], A[i], false);
-					}
+					f.sin(k[i], A[i], false);
 					coords = f.getCoords();
 				} else {continue;}
-				
 				for (int j = 0; j < coords.length; j++) {
 					try {
 						g.drawLine(coords[j][0], coords[j][1], coords[j+1][0], coords[j+1][1]);

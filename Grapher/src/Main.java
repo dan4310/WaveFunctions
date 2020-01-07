@@ -32,7 +32,7 @@ public class Main {
 		frame.add(g);
 		
 	
-		frame.setTitle("Waves are Cool");
+		frame.setTitle("Daniel's Cool Plotter");
 		frame.setSize(frameL+300,frameW);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
