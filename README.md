@@ -12,13 +12,13 @@ Download source code:
 
 `https://github.com/dan4310/WaveFunctions.git`
 
-Navigate to src:
-
-`cd WaveFunctions\src`
-
 Build project:
 
-`javac Main.java`
+`javac src/*.java -d bin`
+
+Navigate to bin:
+
+`cd bin`
 
 Run project:
 
