@@ -1,4 +1,5 @@
 # WaveFunctions
+
 My graph application that plots your wave functions.
 
 This allows the user to plot cosine and sine functions with different input parameters. Fill out all fields for a given
@@ -7,14 +8,18 @@ Press the clear button to clear all fields.
 
 - The fields can handle both integers and decimals
 
-To compile: navigate to Grapher/src/
+Download source code:
 
-`cd Grapher/src` 
+`https://github.com/dan4310/WaveFunctions.git`
 
-then enter the compile command
+Navigate to src:
+
+`cd WaveFunctions\src`
+
+Build project:
 
 `javac Main.java`
 
-To run: once compiled enter the run command
+Run project:
 
 `java Main`
